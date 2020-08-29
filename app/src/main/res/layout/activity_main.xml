@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:background="@drawable/top_bar_bg"
+        android:layout_alignParentTop="true">
+
+        <EditText
+            android:id="@+id/locationField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:layout_marginHorizontal="8dp"
+            android:fontFamily="@font/merriweather_bold"
+            android:inputType="text|textAutoComplete"
+            android:textColor="@color/main_text_color"
+            android:textSize="32sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_bar"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:id="@+id/weather_days"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/day1"
+                android:name="sk.example.skweather.WeatherDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/weather_margin"
+                android:tag="day1" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/day2"
+                android:name="sk.example.skweather.WeatherDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/weather_margin"
+                android:tag="day2" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/day3"
+                android:name="sk.example.skweather.WeatherDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/weather_margin"
+                android:tag="day3" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/day4"
+                android:name="sk.example.skweather.WeatherDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/weather_margin"
+                android:tag="day4" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/day5"
+                android:name="sk.example.skweather.WeatherDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/weather_margin"
+                android:tag="day5" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

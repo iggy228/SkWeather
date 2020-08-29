@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/weather_day_bg"
+    tools:context=".WeatherDay">
+
+    <TextView
+        android:id="@+id/day_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/weather_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/main_text_color"
+        android:layout_marginHorizontal="12dp"
+        android:textSize="0sp"
+        android:layout_below="@id/day_info"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/icon_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@id/weather_info"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:layout_below="@id/weather_icon"
+        android:textColor="@color/main_text_color"/>
+
+    <LinearLayout
+        android:id="@+id/weather_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/day_info"
+        android:paddingVertical="5dp"
+        android:layout_toEndOf="@+id/weather_icon"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/temperatureField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/normal_text"
+            android:textColor="@color/main_text_color"
+            app:drawableLeftCompat="@drawable/ic_thermometer" />
+
+        <TextView
+            android:id="@+id/pressureField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/normal_text"
+            android:layout_marginTop="5dp"
+            android:drawablePadding="@dimen/image_padding"
+            android:textColor="@color/main_text_color"
+            app:drawableLeftCompat="@drawable/ic_meter" />
+
+        <TextView
+            android:id="@+id/humidityField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/normal_text"
+            android:layout_marginTop="5dp"
+            android:drawablePadding="@dimen/image_padding"
+            android:textColor="@color/main_text_color"
+            app:drawableLeftCompat="@drawable/ic_humidity" />
+
+    </LinearLayout>
+
+</RelativeLayout>
