@@ -25,6 +25,7 @@
             android:fontFamily="@font/merriweather_bold"
             android:inputType="text|textAutoComplete"
             android:textColor="@color/main_text_color"
+            android:textAlignment="center"
             android:textSize="32sp" />
 
     </LinearLayout>

@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        /* fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         // check if permission is granted
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
             && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
         fusedLocationProviderClient.lastLocation.addOnSuccessListener {
             location: Location? -> Log.d("mylog", "Longtitude is: ${location?.longitude} and altitude is: ${location?.altitude}");
-        }
+        } */
 
         locationField = findViewById(R.id.locationField)
 

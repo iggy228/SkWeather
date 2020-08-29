@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="normal_text">22sp</dimen>
+    <dimen name="small_text">12sp</dimen>
+    <dimen name="normal_text">20sp</dimen>
     <dimen name="image_padding">8dp</dimen>
     <dimen name="weather_margin">10dp</dimen>
 </resources>
