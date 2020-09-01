@@ -5,6 +5,8 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.SpannableStringBuilder
 import android.view.View
 import android.widget.EditText
 import androidx.annotation.RequiresApi
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                 val fragment: WeatherDay = supportFragmentManager.findFragmentByTag("day$i") as WeatherDay
                 fragment.setViews(response, i)
             }
+            findViewById<EditText>(R.id.locationField).text = SpannableStringBuilder(response.getJSONObject("city").getString("name"))
         }, Response.ErrorListener {
 
         })
