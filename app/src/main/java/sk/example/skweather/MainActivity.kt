@@ -30,12 +30,21 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private val API = "acbd781e031d2ee5f734e15ee6641aad"
 
-    private fun makesWeatherDays(city: String) {
+    private fun makeWeatherUrl(longitude: Int, latitude: Int) {
+        val url = "http://api.openweathermap.org/data/2.5/forecast?lat=$latitude&lon=$longitude&lang=sk&units=metric&appid=$API"
+        makesWeatherDays(url)
+    }
+
+    private fun makeWeatherUrl(city: String) {
+        val url = "http://api.openweathermap.org/data/2.5/forecast?q=$city&lang=sk&units=metric&appid=$API"
+        makesWeatherDays(url)
+    }
+
+    private fun makesWeatherDays(url: String) {
 
         val qVolley = Volley.newRequestQueue(this)
-        val url = "http://api.openweathermap.org/data/2.5/forecast?q=$city&lang=sk&units=metric&appid=acbd781e031d2ee5f734e15ee6641aad"
-
 
         val jsonRequest = JsonObjectRequest(Request.Method.GET, url, null, Response.Listener {
                 response ->
