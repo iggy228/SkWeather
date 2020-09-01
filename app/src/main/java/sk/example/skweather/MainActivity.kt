@@ -3,12 +3,14 @@ package sk.example.skweather
 import android.Manifest
 import android.content.pm.PackageManager
 import android.location.Location
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.res.ResourcesCompat
@@ -27,7 +29,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private fun makesWeatherDays(city: String) {
 
@@ -47,19 +49,22 @@ class MainActivity : AppCompatActivity() {
         qVolley.add(jsonRequest)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /* fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        // check if permission is granted
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-            && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        // check permission
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION), 1);
         }
-        fusedLocationProviderClient.lastLocation.addOnSuccessListener {
-            location: Location? -> Log.d("mylog", "Longtitude is: ${location?.longitude} and altitude is: ${location?.altitude}");
-        } */
+        fusedLocationClient.lastLocation.addOnSuccessListener {
+            location: Location? -> Log.d("mylog", "Longtitude is: ${location?.longitude} and altitude is: ${location?.latitude}");
+        }
 
     }
     fun searchCity(view: View) {
