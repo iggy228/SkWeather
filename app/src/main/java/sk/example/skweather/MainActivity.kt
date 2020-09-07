@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
 import android.os.Bundle
-import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.view.View
 import android.widget.EditText
